@@ -4,7 +4,16 @@ import 'package:bmi_calculator/widgets/card_container.dart';
 import 'package:flutter/material.dart';
 
 class ResultPage extends StatelessWidget {
-  const ResultPage({Key? key}) : super(key: key);
+  const ResultPage({
+    Key? key,
+    required this.result,
+    required this.interpretation,
+    required this.resultText,
+  }) : super(key: key);
+
+  final String result;
+  final String resultText;
+  final String interpretation;
 
   @override
   Widget build(BuildContext context) {
@@ -35,17 +44,17 @@ class ResultPage extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: const [
+                children: [
                   Text(
-                    'Normal',
+                    resultText.toUpperCase(),
                     style: kResultTextStyle,
                   ),
                   Text(
-                    '20',
+                    result,
                     style: kBmiTextStyle,
                   ),
                   Text(
-                    'Your BMI results is quite low',
+                    interpretation,
                     textAlign: TextAlign.center,
                     style: kBodyTextStyle,
                   ),
